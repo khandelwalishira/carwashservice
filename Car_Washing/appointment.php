@@ -78,7 +78,7 @@ $con->close();
               
                <input type="date" name="appointmentdate" id="appointmentdate" placeholder="Enter the date for appointmnet">
                  <select name="status" id="status" > 
-                 <option value="">--please select status as pending--</option>
+                 <option value=""><--please select status as pending--></option>
                    <option value="Pending" >Pending </option>
                </select> 
                
@@ -94,6 +94,24 @@ $con->close();
            </form>
            
     </div>
+    <script>
+        //disable the previous all dates.
+        var todayDate=new Date();
+        var month=todayDate.getMonth()+1;
+        var year=todayDate.getUTCFullYear();
+        var tdate=todayDate.getDate();
+        //we want all the things in the string and 0 attach to it
+        if(month<10){
+            month="0"+month;
+        }
+        if(tdate<10){
+            date="0"+date;
+        }
+        var mindate=year+"-"+month+"-"+tdate;
+        document.getElementById("appointmentdate").setAttribute("min",mindate);
+        console.log(mindate);
+
+    </script>
   
 </body>
 </html>
