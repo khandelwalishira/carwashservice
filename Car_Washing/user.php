@@ -93,6 +93,8 @@ session_start();
                 
                 if($password==$db_pass){
                   //move to appointment.php
+                  session_start();
+                  $_SESSION['emailId']=$email;
                   echo "Login Succesfully";
                   ?>
                   <script>
