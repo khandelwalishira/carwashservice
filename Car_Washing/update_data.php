@@ -6,8 +6,10 @@ $password="";
 //Create a database connection
 $con=mysqli_connect($server,$username,$password,"carwash");
 $id=$_GET['id'];
-$q="SELECT *FROM users where Id='$id'";
+$q="SELECT *FROM users where id='$id'";
 $data=mysqli_query($con,$q);
+$total=mysqli_num_rows($data);
+$row=mysqli_fetch_assoc($data);
 
 
 ?>
@@ -45,10 +47,9 @@ $data=mysqli_query($con,$q);
               
                <input type="date" name="appointmentdate" id="appointmentdate" placeholder="Enter the date for appointmnet">
                  <select name="status" id="status" > 
-                 <option value="">--please select status as pending--</option>
-                   <option value="Pending" default>Pending </option>
-                   <option value="Accept">Accept</option>
-                   <option value="Reject">Reject</option>
+                 <option value="">--please select status --</option>
+                   <option value="Accept">Accepted</option>
+                   <option value="Reject">Rejected</option>
                </select> 
                
               

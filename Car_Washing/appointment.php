@@ -24,6 +24,7 @@ $contact=$_POST['contact'];
 $email=$_POST['email'];
 $date=$_POST['date'];
 $sql= "INSERT INTO `carwash`.`users` ( `carnumber`,`city`,`servicecenter`, `appointmentdate`, `status`,`carname`,`contact`, `email`, `date`) VALUES ( '$carnumber','$city','$servicecenter', '$appointmentdate', '$status', '$carname','$contact','$email','$date');";
+
 // echo $sql;
 //Execute the Query
 if($con->query($sql)==true){
@@ -67,8 +68,9 @@ $con->close();
         
                </select>
                 <select name="servicecenter" id="servicecenter" required>
-                   <option value="">--Select the service center from here--</option>
-                   <option value="Sai car center">Sai car center</option>
+                <option value=""><--Select the service center from here--></option>
+            
+                   <option value="Janta Garage">Sai Car center</option>
                    <option value="Janta Garage">Janta Garage</option>
                    <option value="Car Shine Services">Car Shine Services </option>
                    <option value="Poonam Washing chambers">Poonam Washing Chamber</option>
@@ -77,9 +79,7 @@ $con->close();
                <input type="date" name="appointmentdate" id="appointmentdate" placeholder="Enter the date for appointmnet">
                  <select name="status" id="status" > 
                  <option value="">--please select status as pending--</option>
-                   <option value="Pending" default>Pending </option>
-                   <option value="Accept">Accept</option>
-                   <option value="Reject">Reject</option>
+                   <option value="Pending" >Pending </option>
                </select> 
                
               

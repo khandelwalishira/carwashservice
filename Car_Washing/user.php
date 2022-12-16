@@ -79,9 +79,12 @@ session_start();
            //Create a database connection
              $con=mysqli_connect($server,$username,$password,"carwash");
              $email=$_POST['email'];
+             //I need to send this email to your appointments
              $password=$_POST['password'];
               $email_search="select * from userlogin where email='$email'";
               $query=mysqli_query($con,$email_search);
+             
+
               //In how many rows does my email id is present
               $email_count=mysqli_num_rows($query);
               if($email_count){
@@ -99,7 +102,7 @@ session_start();
 
 
                 }else{
-                  echo "incorrect";
+                  echo "Incorrect Password";
 
                 }
               }else{

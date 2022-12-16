@@ -50,6 +50,10 @@
   <tbody>
       <?php
       $connection=mysqli_connect("localhost","root","","carwash");
+     
+ 
+
+
         if(isset($_POST['filter_btn'])){
             $value_filter=$_POST['filter_value'];
             $query="SELECT * FROM  users WHERE CONCAT(carnumber) LIKE '%$value_filter'";
