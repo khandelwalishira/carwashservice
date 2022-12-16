@@ -50,6 +50,35 @@
   <tbody>
       <?php
       $connection=mysqli_connect("localhost","root","","carwash");
+      session_start();
+      $newemail=$_SESSION['emailId'];
+      $q="SELECT * FROM users WHERE email='$newemail'";
+      $results=mysqli_query($connection,$q);
+      if($results){
+        while($row=mysqli_fetch_array($results)){
+           
+            ?>
+      <tr>
+        
+        <td><?php echo $row['Id'];?> </td>
+        <td><?php echo $row['carnumber'];?> </td>
+        <td><?php echo $row['city'];?> </td>
+        <td><?php echo $row['servicecenter'];?> </td>
+        <td><?php echo $row['appointmentdate'];?> </td>
+        <td><?php echo $row['status'];?> </td>
+        <td><?php echo $row['carname'];?> </td>
+        <td><?php echo $row['contact'];?> </td>
+        <td><?php echo $row['email'];?> </td>
+        <td><?php echo $row['date'];?> </td>
+         
+     </tr>
+            <?php
+
+        }
+
+    }else{
+      echo "Something went wrong";
+    }
      
  
 
